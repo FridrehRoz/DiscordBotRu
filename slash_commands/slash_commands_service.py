@@ -16,7 +16,7 @@ import dev_scripts
     name='help',
     description='При имении docstring у запрашиваемой команды отправляет её.')
 async def help_response(cmd_inter: cmd.CmdInter,
-                        cmd_name: str) -> None:
+                        cmd_name: str = 'команда') -> None:
     command: commands.core.Command = bot.get_command(cmd_name.capitalize())
     if command is None:
         await cmd_inter.response.send_message(

@@ -1,4 +1,5 @@
 # Встроенные модули
+import cmd
 
 # Основные внешние модули
 
@@ -27,3 +28,13 @@ async def server_response(cmd_inter: cmd.CmdInter) -> None:
         f'Участников на сервере: {cmd_inter.guild.member_count}\n'
         f'Хозяин сервера ฅ^•ﻌ•^ฅ: {cmd_inter.guild.owner.name}\n'
         'Github хозяина: https://github.com/FridrehRoz')
+
+
+@bot.slash_command(name='user',
+                   description='Выводит тег и id вызвавшего пользователя.')
+async def user_response(cmd_inter: cmd.CmdInter) -> None:
+    await cmd_inter.response.send_message(
+        'Ваши данные  /ᐠ=ᆽ=ᐟ \\\n'
+        f'Тег: {cmd_inter.user.name + "#" + cmd_inter.user.discriminator}\n'
+        f'ID: {cmd_inter.user.id}'
+    )

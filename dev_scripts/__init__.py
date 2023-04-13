@@ -1,3 +1,3 @@
-from dev_scripts.get_object_data import *
+from dev_scripts import get_object_data
 
 __version__ = 0.1

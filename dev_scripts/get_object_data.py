@@ -1,7 +1,5 @@
 from pprint import pprint
 
-__all__ = ['get_info']
-
 
 async def get_info(command) -> None:
     """Выводит: Тип и словарь объекта,

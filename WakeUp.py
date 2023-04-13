@@ -8,12 +8,13 @@ from bot_start import *
 # Вспомогательные со программные модули (с сопутствующим кодом)
 from events import *
 from slash_commands import *
-from commands import *
 
 # Модули отладки (вне работы программы)
 import dev_scripts
 
 __version__ = 0.1
 __author__ = 'NekoMaster'
+
+bot.load_extension('cogs_base.cogs_delay_response')
 
 bot.run(TOKEN)
