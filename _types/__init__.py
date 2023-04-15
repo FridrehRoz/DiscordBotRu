@@ -1,5 +1,9 @@
-from _types import types_cmd as cmd
-from _types import types_other_inputs as other_inputs
-from _types import types_error as errors
+"""
+Пакет типов из disnake API
+"""
 
 __version__ = 0.1
+
+from _types.types_cmd import *
+from _types.types_other_inputs import *
+from _types.types_error import *
