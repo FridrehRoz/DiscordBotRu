@@ -2,6 +2,7 @@
 Набор иных типов объектов disnake-а
 """
 
+from disnake import Guild  # гильдия
 from disnake.member import Member  # участник/пользователь
 
 from disnake.ext.commands import Bot  # клиент бота
@@ -12,3 +13,5 @@ from disnake.embeds import Embed  # встраиваемое окно сообщ
 
 from disnake.abc import GuildChannel  # объект канала гильдии
 from disnake import TextChannel  # объект текстового канала
+
+from disnake.iterators import BanIterator

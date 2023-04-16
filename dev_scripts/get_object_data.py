@@ -16,12 +16,14 @@ import dev_scripts
 
 async def get_info(obj,
                    key: str = 'show') -> typing.Union[typing.NoReturn, str]:
-    """Выводит: Тип, атрибуты и словарь объекта
+    """
+    Выводит: Тип, атрибуты и словарь объекта
 
     key - show выводит информацию в консоль
     key - file выводит информацию в файл
     :param obj: передаваемый объект команды 
-    :param key: ключ для вывода"""
+    :param key: ключ для вывода
+    """
 
     match key:
         case 'show':
@@ -31,11 +33,18 @@ async def get_info(obj,
 
             print('Атрибуты объекта:\n')
             pprint(dir(obj))
-            print('Словарь реализации объекта:\n')
-            pprint(obj.__dict__)
+            try:
+                print('Словарь реализации объекта:\n')
+                pprint(obj.__dict__)
+            except AttributeError:
+                pprint('Не имеет атрибута __dict__')
 
         case 'file':
             result_string = f'Тип объекта: {type(obj)}\n'
             result_string += f'Атрибуты объект:\n{dir(obj)}\n'
-            result_string += f'Словарь реализации:\n{obj.__dict__}\n'
+            try:
+                result_string += f'Словарь реализации:\n{obj.__dict__}\n'
+            except AttributeError:
+                result_string += 'Не имеет атрибута __dict__'
+
             return result_string

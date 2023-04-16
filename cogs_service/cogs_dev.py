@@ -18,7 +18,7 @@ import dev_scripts
 from special_variables.bot_start_variables import is_imported
 
 
-class MyCommand:
+class CommandObject:
     """
     Отвечает за обрабатываемую команду в когах
     """
@@ -56,7 +56,7 @@ class DevInfoCommands(_types.Cog,
         :param cmd_inter: объект сообщения
         :param cmd_name: название команды для запроса help
         """
-        command: MyCommand = MyCommand(cmd_name)
+        command: CommandObject = CommandObject(cmd_name)
         await command.set_command_obj()
 
         if command.command_obj is None:
@@ -91,8 +91,7 @@ class DevInfoCommands(_types.Cog,
                     file.write(pprint.pformat(
                         await dev_scripts.get_object_data.get_info(cmd_inter)))
             case 'console':
-                pprint.pprint(
-                    await dev_scripts.get_object_data.get_info(cmd_inter))
+                await dev_scripts.get_object_data.get_info(cmd_inter)
 
         await cmd_inter.response.send_message('Ответ на запрос был получен!')
 
