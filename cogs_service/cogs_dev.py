@@ -60,13 +60,28 @@ class DevInfoCommands(_types.Cog,
         await command.set_command_obj()
 
         if command.command_obj is None:
-            await cmd_inter.response.send_message(f'Команды {cmd_name} нет!')
+            await cmd_inter.send(f'Команды {cmd_name} нет!')
         else:
             if command.command_obj.help is None:
-                await cmd_inter.response.send_message(
+                await cmd_inter.send(
                     'Документация отсутствует!')
             else:
-                await cmd_inter.response.send_message(command.command_obj.help)
+                await cmd_inter.send(command.command_obj.help)
+
+    @help_response.error
+    async def help_error(self,
+                         cmd_inter: _types.CmdInter,
+                         error: _types.MissingAnyRole) -> typing.NoReturn:
+        """
+        Обработчик ошибки команды help.
+
+        Некорректная роль вызывающего команду
+
+        :param cmd_inter: объект команды
+        :param error: объект ошибки
+        """
+        await cmd_inter.send(
+            'Проходи мимо котик, у тебя недостаточно прав! /ᐠᵕ ‸ᵕᐟ\\ﾉ')
 
     @commands.has_any_role(1095625852735213608, 1095630062528766053)
     @commands.slash_command(name='request_info',
@@ -93,22 +108,7 @@ class DevInfoCommands(_types.Cog,
             case 'console':
                 await dev_scripts.get_object_data.get_info(cmd_inter)
 
-        await cmd_inter.response.send_message('Ответ на запрос был получен!')
-
-    @help_response.error
-    async def help_error(self,
-                         cmd_inter: _types.CmdInter,
-                         error: _types.MissingAnyRole) -> typing.NoReturn:
-        """
-        Обработчик ошибки команды help.
-
-        Некорректная роль вызывающего команду
-
-        :param cmd_inter: объект команды
-        :param error: объект ошибки
-        """
-        await cmd_inter.response.send_message(
-            'Проходи мимо котик, у тебя недостаточно прав! /ᐠᵕ ‸ᵕᐟ\\ﾉ')
+        await cmd_inter.send('Ответ на запрос был получен!')
 
 
 def setup(_bot: _types.Bot) -> typing.NoReturn:

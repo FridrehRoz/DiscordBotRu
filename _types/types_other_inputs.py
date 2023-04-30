@@ -15,3 +15,5 @@ from disnake.abc import GuildChannel  # объект канала гильдии
 from disnake import TextChannel  # объект текстового канала
 
 from disnake.iterators import BanIterator
+
+from dataclasses import dataclass

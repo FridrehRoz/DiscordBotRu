@@ -25,7 +25,8 @@ __all__ = ['bot',
            'TOKEN',
            'GUILD_ID', 'GRAVEYARD_CHANNEL_ID',
            'WELCOME_CHANNEL_ID', 'GOOD_BY_CHANNEL_ID',
-           'MASTER_ID']
+           'MASTER_ID',
+           'DEFAULT_PATH', 'BOT_EXPRESSION_PATH',]
 
 sync_flags = commands.CommandSyncFlags(
     sync_commands_debug=True
@@ -40,9 +41,12 @@ bot: _types.Bot = commands.Bot(command_prefix='!',
 TOKEN: str = str(os.getenv('BOT_TOKEN'))
 MASTER_ID: int = int(os.getenv('MASTER_ID'))
 GUILD_ID: int = int(os.getenv('GUILD_ID'))
-WELCOME_CHANNEL_ID: int = int(os.getenv('WELCOME_CHANNEL'))
-GOOD_BY_CHANNEL_ID: int = int(os.getenv('GOOD_BY_CHANNEL'))
-GRAVEYARD_CHANNEL_ID: int = int(os.getenv('GRAVEYARD_CHANNEL'))
+WELCOME_CHANNEL_ID: int = int(os.getenv('WELCOME_CHANNEL_ID'))
+GOOD_BY_CHANNEL_ID: int = int(os.getenv('GOOD_BY_CHANNEL_ID'))
+GRAVEYARD_CHANNEL_ID: int = int(os.getenv('GRAVEYARD_CHANNEL_ID'))
+DEFAULT_PATH: str = str(os.getenv('DEFAULT_PATH'))
+
+BOT_EXPRESSION_PATH: str = r"\Material\Expression's"
 
 is_imported()
 print('\n')

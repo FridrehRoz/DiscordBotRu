@@ -34,7 +34,7 @@ class InfoCommands(_types.Cog, name='CogInfoCommands'):
 
         :param cmd_inter: объект слэш-команды
         """
-        await cmd_inter.response.send_message(
+        await cmd_inter.send(
             f'Хозяин этого борделя ฅ^•ﻌ•^ฅ {bot.get_user(MASTER_ID)}\n'
             f'https://github.com/FridrehRoz')
 
@@ -47,7 +47,7 @@ class InfoCommands(_types.Cog, name='CogInfoCommands'):
 
         :param cmd_inter: объект слэш-команды
         """
-        await cmd_inter.response.send_message(
+        await cmd_inter.send(
             f'Сервер: {cmd_inter.guild.name} ₍^ .ω. ^₎⟆\n'
             f'Участников на сервере: {cmd_inter.guild.member_count}\n'
             f'Хозяин сервера ฅ^•ﻌ•^ฅ: {cmd_inter.guild.owner.name}\n'
@@ -62,7 +62,7 @@ class InfoCommands(_types.Cog, name='CogInfoCommands'):
 
         :param cmd_inter: объект слэш-команды
         """
-        await cmd_inter.response.send_message(
+        await cmd_inter.send(
             'Ваши данные  /ᐠ=ᆽ=ᐟ \\\n'
             f'Тег: {cmd_inter.user.name + "#" + cmd_inter.user.discriminator}'
             f'\nID: {cmd_inter.user.id}'

@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 # Модули отладки (вне работы программы)
 
-imported_modules_bar = tqdm(total=6)
+imported_modules_bar = tqdm(total=7)
 imported_modules_bar.set_description('Imported packages')
 
 

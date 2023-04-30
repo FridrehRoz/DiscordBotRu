@@ -27,7 +27,7 @@ class DelayResponseCommands(_types.Cog,
     def __init__(self, _bot: _types.Bot):
         self.bot = _bot
 
-    @commands.command(name='Ping')
+    @commands.command(name='ping')
     async def ping_response(self, cmd_ctx: _types.Ctx) -> typing.NoReturn:
         """
         Отправляет Pong :D
@@ -36,7 +36,7 @@ class DelayResponseCommands(_types.Cog,
         """
         await cmd_ctx.send('Pong! ₍^⌯ᴖⱅᴖ⌯^₎')
 
-    @commands.command(name='Marko')
+    @commands.command(name='marko')
     async def marko_response(self, cmd_ctx: _types.Ctx) -> typing.NoReturn:
         """
         Отправляет Polo (Это же все знают!)
