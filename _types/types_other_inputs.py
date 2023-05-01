@@ -11,6 +11,8 @@ from disnake.ext.commands import Cog  # ког, дополнения для бо
 
 from disnake.embeds import Embed  # встраиваемое окно сообщения
 
+from disnake import File # файл при преобразовании disnake-а
+
 from disnake.abc import GuildChannel  # объект канала гильдии
 from disnake import TextChannel  # объект текстового канала
 

@@ -103,10 +103,9 @@ class DevInfoCommands(_types.Cog,
         match key:
             case 'file':
                 with open('request_info.txt', 'w') as file:
-                    file.write(pprint.pformat(
-                        await dev_scripts.get_object_data.get_info(cmd_inter)))
+                    file.write(pprint.pformat(None))
             case 'console':
-                await dev_scripts.get_object_data.get_info(cmd_inter)
+                pass
 
         await cmd_inter.send('Ответ на запрос был получен!')
 

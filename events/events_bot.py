@@ -6,6 +6,8 @@
 
 # Основные внешние модули
 import typing
+
+import special_bot_scripts.bot_emotion_script
 # Детальный импорт внешних модулей
 
 # Вспомогательные со программные модули (с сопутствующим кодом)
@@ -16,7 +18,6 @@ from embeds_package import *
 
 # Модули отладки (вне работы программы)
 
-
 @bot.event
 async def on_connect() -> typing.NoReturn:
     """Реагирует на подключение бота к серверу Discord"""
@@ -26,4 +27,4 @@ async def on_connect() -> typing.NoReturn:
 @bot.event
 async def on_ready() -> typing.NoReturn:
     """Реагирует на готовность бота к работе."""
-    print('Черничка проснулась!')
+    print('Черничка проснулась!\n')

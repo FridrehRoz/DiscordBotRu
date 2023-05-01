@@ -13,8 +13,6 @@ import _types
 # Модули отладки (вне работы программы)
 import dev_scripts
 
-__all__ = ['get_welcome_embed']
-
 
 async def get_welcome_embed(member: _types.Member) -> _types.Embed:
     """

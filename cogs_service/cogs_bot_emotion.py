@@ -1,18 +1,14 @@
-r"""
-Набор когов для проявления эмоций бота в чате.
-
-Material\Expression's
+"""
+Набор когов для эмоциональной функциональности бота
 """
 
 __version__ = 1.0
 
-import dataclasses
-import os
-import time
 # Встроенные модули
 
 # Основные внешние модули
 import typing
+from special_bot_scripts.bot_emotion_script import *
 # Детальный импорт внешних модулей
 from disnake.ext import commands
 # Вспомогательные со программные модули (с сопутствующим кодом)
@@ -23,22 +19,10 @@ import dev_scripts
 from special_variables.bot_start_variables import is_imported
 
 
-@dataclasses.dataclass
-class Emotion:
-    """
-    Отвечает за эмоцию которая будет отправлена.
-
-    Настраивается при помощи кога EmotionCommands.
-    """
-
-    expression: str  # выражение лица модели
-    pose: str  # поза модели
-
-
 class EmotionCommands(_types.Cog,
                       name='CogEmotionCommands'):
     """
-    Набор команд для работы с эмоциональными реакциями бота
+    Набор команд для получения информации разработчику
     """
 
     def __init__(self, _bot: _types.Bot):
@@ -46,28 +30,24 @@ class EmotionCommands(_types.Cog,
 
     @commands.has_any_role(1095625852735213608, 1095630062528766053)
     @commands.slash_command(
-        name='expression',
-        description='Выбирает вид выражения лица.')
-    async def expression_response(
+        name='request_emotion',
+        description='запрос эмоциональной реакции.')
+    async def request_emotion_response(
             self,
             cmd_inter: _types.CmdInter,
-            expression_name: str = commands.Param(
-                description='название эмоции')) -> typing.NoReturn:
+            data: str = commands.Param(
+                description='expression и pose, '
+                            'разделитель ","')) -> typing.NoReturn:
         """
-        Обработчик команды expression
+        Обработчик команды request_emotion
         :param cmd_inter: объект сообщения
-        :param expression_name: название выражения ~(Angry, happy)
+        :param data: выражение лица и поза
         """
+        expression, pose = data.split(',')
 
-        expression_name = expression_name.capitalize()
-        expression_types: list = os.listdir(DEFAULT_PATH + BOT_EXPRESSION_PATH)
-
-        if expression_name not in expression_types:
-            Emotion.expression = 'Neutral'
-        else:
-            Emotion.expression = expression_name
-
-        await cmd_inter.delete_original_response()
+        await set_expression(expression)
+        await set_pose(pose)
+        await cmd_inter.send(file=await Emotion.get_file())
 
 
 def setup(_bot: _types.Bot) -> typing.NoReturn:
