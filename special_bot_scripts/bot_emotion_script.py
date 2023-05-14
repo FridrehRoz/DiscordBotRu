@@ -15,8 +15,10 @@ import _types
 import disnake
 
 # Детальный импорт внешних модулей
+
 # Вспомогательные со программные модули (с сопутствующим кодом)
 from bot_start import *
+
 # Модули отладки (вне работы программы)
 import dev_scripts
 
@@ -40,7 +42,7 @@ class Emotion:
     @classmethod
     async def get_file(cls):
         """Возвращает файл с изображением."""
-        with open(rf'{DIRECTORY_PATH}\{cls.expression}\{cls.pose}.jpg',
+        with open(rf'{DIRECTORY_PATH}\{cls.expression}\{cls.pose}.png',
                   'rb') as file:
             img: _types.File = disnake.File(file)
             return img

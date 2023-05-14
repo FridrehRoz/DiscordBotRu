@@ -6,6 +6,7 @@
 
 # Основные внешние модули
 import typing
+
 # Детальный импорт внешних модулей
 
 # Вспомогательные со программные модули (с сопутствующим кодом)
@@ -13,7 +14,8 @@ from bot_start import *
 import _types
 
 # Модули отладки (вне работы программы)
-import dev_scripts
+
+__all__ = ['check_cmd', 'request_cmd']
 
 
 async def check_cmd(command_name: str) -> bool:

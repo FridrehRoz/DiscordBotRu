@@ -4,5 +4,5 @@
 
 __version__ = 0.1
 
-from dev_scripts import get_object_data
-from dev_scripts import get_command
+from dev_scripts.get_object_data import *
+from dev_scripts.get_command import *

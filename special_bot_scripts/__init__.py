@@ -4,4 +4,4 @@
 
 __version__ = 0.1
 
-from special_bot_scripts import bot_emotion_script
+from special_bot_scripts.bot_emotion_script import *
