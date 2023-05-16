@@ -13,7 +13,7 @@ from termcolor import colored
 # Вспомогательные со программные модули (с сопутствующим кодом)
 
 # Модули отладки (вне работы программы)
-import dev_scripts
+
 
 __all__ = ['is_initialized', 'is_reg']
 

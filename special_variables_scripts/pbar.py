@@ -14,7 +14,6 @@ from tqdm import tqdm
 # Вспомогательные со программные модули (с сопутствующим кодом)
 
 # Модули отладки (вне работы программы)
-import dev_scripts
 
 __all__ = ['import_pbar',
            'is_imported']

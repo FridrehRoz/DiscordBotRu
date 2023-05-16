@@ -14,8 +14,6 @@ import typing
 
 # Модули отладки (вне работы программы)
 
-__all__ = ['get_info']
-
 
 async def get_info(obj,
                    key: str = 'show') -> typing.Union[typing.NoReturn, str]:
