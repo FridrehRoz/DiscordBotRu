@@ -15,7 +15,8 @@ from bot_start import *
 import _types
 # Модули отладки (вне работы программы)
 import dev_scripts
-from special_variables.bot_start_variables import is_imported
+from checkout_scripts.pbar import is_imported
+from checkout_scripts.initialized import is_reg
 
 
 class DiceCommands(_types.Cog,
@@ -48,5 +49,5 @@ def setup(_bot: _types.Bot):
     :param _bot: объект бота
     """
     _bot.add_cog(DiceCommands(_bot))
-    print(f'\n{__name__} ver {__version__} загружен!')
+    is_reg(__name__, __version__)
     is_imported()

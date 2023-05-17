@@ -1,9 +1,12 @@
 """
-Специальные переменные на этапе старта бота.
+Progress bar для запуска бота
 """
+
 # Встроенные модули
 from time import sleep
+
 # Основные внешние модули
+import typing
 
 # Детальный импорт внешних модулей
 from tqdm import tqdm
@@ -12,17 +15,21 @@ from tqdm import tqdm
 
 # Модули отладки (вне работы программы)
 
-imported_modules_bar = tqdm(total=6)
-imported_modules_bar.set_description('Imported packages')
+__all__ = ['import_pbar',
+           'is_imported']
+
+import_pbar = tqdm(total=7,
+                   desc='Imported packages',
+                   colour='#004f84')
 
 
-def is_imported():
+def is_imported() -> typing.NoReturn:
     """
     Обновляет progress bar импортированных модулей
     """
-    if imported_modules_bar.n != imported_modules_bar.total:
-        imported_modules_bar.update()
+    if import_pbar.n != import_pbar.total:
+        import_pbar.update()
         sleep(1)
     else:
-        imported_modules_bar.close()
+        import_pbar.close()
     print()

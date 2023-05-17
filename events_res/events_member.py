@@ -14,10 +14,12 @@ import disnake
 # Вспомогательные со программные модули (с сопутствующим кодом)
 from bot_start import *
 import _types
-from embeds_package import embeds_events_member as embeds
+from embeds_res import embeds_events_member as embeds
 
 # Модули отладки (вне работы программы)
 import dev_scripts
+
+__all__ = ['on_member_join', 'on_member_remove', 'on_member_ban']
 
 
 @bot.event

@@ -6,14 +6,15 @@
 
 # Основные внешние модули
 import typing
+
 # Детальный импорт внешних модулей
 
 # Вспомогательные со программные модули (с сопутствующим кодом)
 from bot_start import *
 import _types
 
+
 # Модули отладки (вне работы программы)
-import dev_scripts
 
 
 async def check_cmd(command_name: str) -> bool:
@@ -23,7 +24,7 @@ async def check_cmd(command_name: str) -> bool:
     :param command_name: Название команды
     :return bool:
     """
-    if command_name in (command.name for command in bot.commands):
+    if command_name in [command.name for command in bot.commands]:
         return True
     return False
 

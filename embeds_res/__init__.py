@@ -4,4 +4,4 @@
 
 __version__ = 0.1
 
-from embeds_package import embeds_events_member
+from embeds_res.embeds_events_member import *

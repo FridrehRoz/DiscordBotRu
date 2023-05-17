@@ -8,12 +8,16 @@
 
 # Детальный импорт внешних модулей
 from disnake import Embed
+
 # Вспомогательные со программные модули (с сопутствующим кодом)
 import _types
+
 # Модули отладки (вне работы программы)
 import dev_scripts
 
-__all__ = ['get_welcome_embed']
+__all__ = ['get_welcome_embed',
+           'get_good_by_embed',
+           'get_ban_embed']
 
 
 async def get_welcome_embed(member: _types.Member) -> _types.Embed:

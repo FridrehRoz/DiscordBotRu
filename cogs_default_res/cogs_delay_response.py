@@ -8,14 +8,18 @@ __version__ = 1.0
 
 # Основные внешние модули
 import typing
+
 # Детальный импорт внешних модулей
 from disnake.ext import commands
+
 # Вспомогательные со программные модули (с сопутствующим кодом)
 from bot_start import *
 import _types
+
 # Модули отладки (вне работы программы)
 import dev_scripts
-from special_variables.bot_start_variables import is_imported
+from checkout_scripts.pbar import is_imported
+from checkout_scripts.initialized import is_reg
 
 
 class DelayResponseCommands(_types.Cog,
@@ -27,7 +31,7 @@ class DelayResponseCommands(_types.Cog,
     def __init__(self, _bot: _types.Bot):
         self.bot = _bot
 
-    @commands.command(name='Ping')
+    @commands.command(name='ping')
     async def ping_response(self, cmd_ctx: _types.Ctx) -> typing.NoReturn:
         """
         Отправляет Pong :D
@@ -36,7 +40,7 @@ class DelayResponseCommands(_types.Cog,
         """
         await cmd_ctx.send('Pong! ₍^⌯ᴖⱅᴖ⌯^₎')
 
-    @commands.command(name='Marko')
+    @commands.command(name='marko')
     async def marko_response(self, cmd_ctx: _types.Ctx) -> typing.NoReturn:
         """
         Отправляет Polo (Это же все знают!)
@@ -53,5 +57,5 @@ def setup(_bot: _types.Bot):
     :param _bot: объект бота
     """
     _bot.add_cog(DelayResponseCommands(_bot))
-    print(f'\n{__name__} ver {__version__} загружен!')
+    is_reg(__name__, __version__)
     is_imported()
