@@ -7,7 +7,7 @@
 # Основные внешние модули
 import typing
 
-import special_bot_scripts.bot_emotion_script
+import special_bot_scripts.bot_emotion
 # Детальный импорт внешних модулей
 
 # Вспомогательные со программные модули (с сопутствующим кодом)

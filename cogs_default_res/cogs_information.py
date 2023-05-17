@@ -17,8 +17,8 @@ import _types
 
 # Модули отладки (вне работы программы)
 import dev_scripts
-from special_variables_scripts.pbar import is_imported
-from special_variables_scripts.initialized import is_reg
+from checkout_scripts.pbar import is_imported
+from checkout_scripts.initialized import is_reg
 
 
 class InfoCommands(_types.Cog, name='CogInfoCommands'):

@@ -8,7 +8,7 @@ __version__ = 1.0
 
 # Основные внешние модули
 import typing
-from special_bot_scripts.bot_emotion_script import *
+from special_bot_scripts.bot_emotion import *
 
 # Детальный импорт внешних модулей
 from disnake.ext import commands
@@ -19,8 +19,8 @@ import _types
 
 # Модули отладки (вне работы программы)
 import dev_scripts
-from special_variables_scripts.pbar import is_imported
-from special_variables_scripts.initialized import is_reg
+from checkout_scripts.pbar import is_imported
+from checkout_scripts.initialized import is_reg
 
 
 class EmotionCommands(_types.Cog,
@@ -44,6 +44,7 @@ class EmotionCommands(_types.Cog,
                             'разделитель ","')) -> typing.NoReturn:
         """
         Обработчик команды request_emotion
+
         :param cmd_inter: объект сообщения
         :param data: выражение лица и поза
         """

@@ -15,8 +15,8 @@ from disnake import Intents
 import _types
 
 # Модули отладки (вне работы программы)
-from special_variables_scripts.initialized import is_initialized
-from special_variables_scripts.pbar import *
+from checkout_scripts.initialized import is_initialized
+from checkout_scripts.pbar import *
 
 __all__ = ['bot',
            'TOKEN',

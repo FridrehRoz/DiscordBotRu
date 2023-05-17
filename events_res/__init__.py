@@ -4,8 +4,8 @@
 
 __version__ = 0.3
 
-from special_variables_scripts.initialized import is_initialized
-from special_variables_scripts.pbar import is_imported
+from checkout_scripts.initialized import is_initialized
+from checkout_scripts.pbar import is_imported
 
 from events_res.events_bot import *
 from events_res.events_member import *
