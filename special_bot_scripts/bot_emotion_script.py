@@ -55,7 +55,7 @@ async def set_expression(name: str) -> typing.NoReturn:
     :param name: Название выражения ~(Angry, happy)
     """
 
-    expression_name = name.capitalize().strip()
+    expression_name = name.strip()
 
     if expression_name not in os.listdir(DIRECTORY_PATH):
         Emotion.expression = 'Neutral'
@@ -70,9 +70,10 @@ async def set_pose(name: str) -> typing.NoReturn:
     :param name: Название позы ~()
     """
 
-    pose_name = name.capitalize().strip()
+    pose_name = name.strip()
 
-    if pose_name not in os.listdir(DIRECTORY_PATH + rf'\{Emotion.expression}'):
+    if pose_name + '.png' not in os.listdir(DIRECTORY_PATH +
+                                            rf'\{Emotion.expression}'):
         Emotion.pose = 'Greeting'
     else:
         Emotion.pose = pose_name

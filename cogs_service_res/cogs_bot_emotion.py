@@ -8,7 +8,7 @@ __version__ = 1.0
 
 # Основные внешние модули
 import typing
-from special_bot_scripts.bot_emotion import *
+from special_bot_scripts.bot_emotion_script import *
 
 # Детальный импорт внешних модулей
 from disnake.ext import commands
@@ -49,9 +49,11 @@ class EmotionCommands(_types.Cog,
         :param data: выражение лица и поза
         """
         expression, pose = data.split(',')
+        print(data)
+        print(expression, pose)
 
-        await set_expression(expression)
-        await set_pose(pose)
+        await set_expression(expression.capitalize())
+        await set_pose(pose.capitalize())
         await cmd_inter.send(file=await Emotion.get_file())
 
 
